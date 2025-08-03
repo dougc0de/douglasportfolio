@@ -1,0 +1,342 @@
+body {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+  align-content: start;
+  overflow-x: hidden;
+}
+
+header{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 5%;
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+    position: relative;  
+  z-index: 999;   
+}
+
+main {
+  flex-grow: 1;
+  height: 160vh;
+}
+
+
+footer {
+  width: 100%;
+  height: 5%;
+}
+
+
+.repWeb {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+}
+
+.box:nth-child(1),
+.box:nth-child(2),
+.box:nth-child(3),
+.box:nth-child(4),
+.box:nth-child(5),
+.box:nth-child(6),
+.box:nth-child(7),
+.box:nth-child(8),
+.box:nth-child(9) {
+  width: 32%;
+  height: 32%;
+}
+
+.hero {
+    width: 100%;
+    height: 95vh;
+    position: relative;
+  width: 100%;
+  height: 100vh;                 /* Siempre del alto de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;           /* Centra bloques vertical y horizontal */
+  overflow: hidden;
+  
+}
+
+.heroimage{
+   position: absolute;
+  inset: 0;                      /* Toma todo el espacio del hero */
+  z-index: -2;    
+}
+
+
+.heroimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* Mantiene proporciones y cubre */
+  object-position: center;
+  opacity: ;
+  filter: brightness(.85);    
+  background: black; 
+}
+
+.callToAction {
+  text-align: center;
+  color: #fff;
+  max-width: 45rem;
+  padding: 0 1rem;
+  /* Si quieres animación de entrada */
+  animation: fadeIn var(--transition) .15s backwards;
+    position: relative;      /* mantiene el z-index y el centrado flex del .hero */
+  top: -7vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.callToAction h1 {
+  font-size: clamp(2rem, 5vw + .5rem, 3.5rem);
+  letter-spacing: .02em;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.callToAction p {
+  font-size: clamp(1rem, 2vw + .25rem, 1.25rem);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* 4. Botones alineados y estilizados */
+.botones {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+.botones button {
+  background: #FFD000;         /* amarillo “tech” principal */
+  color: #000000;              /* texto negro para contraste */
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.botones button:hover,
+.botones button:focus-visible {
+  background: #FFE45C;         /* amarillo más claro en hover */
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Ajuste móvil opcional */
+@media (max-width: 480px) {
+  .botones { gap: 0.75rem; }
+}
+
+
+.logo  {
+    width: 150px;
+    height: auto;
+    margin: 0.2rem 5rem ;
+    min-height: 50px;
+
+}
+
+.socialMediaIcons {
+    width: 150px;
+    height: auto;   
+    display: flex;
+    gap: 2%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+    margin: 0rem 2rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.mediaIcon {
+    width: 20%;
+    height: 100%;
+
+}
+
+nav {
+    width: 500px;
+    height: auto;
+    display: flex;
+    gap: 5%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.buttonMenu{
+    background-color: #000000;
+    color: #fff;
+
+}
+
+.logo {
+    width: 150px ;
+    height: 70px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.mediaIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.mediaIcon img {
+    width: 100%;
+    height: 100%;
+}
+
+
+nav {
+  display: flex;                 /* menú visible siempre */
+  gap: 1.25rem;
+  align-items: center;
+}
+
+#navToggle {                     /* ocultamos el ☰ en escritorio */
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#mainNav ul{
+    display: flex;
+    gap: 2rem;
+}
+
+@media (max-width: 768px){
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      order: 1;
+    }
+
+    .socialMediaIcons{
+      order: 2;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    #navToggle{
+      order: 3;
+    }
+
+    #navToggle{
+        display: block;
+    }
+
+    #mainNav{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        color: #fff;
+        background-color: #2b2b2b;
+        width: 70vw;
+        max-width: 320px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    #mainNav ul li a{
+           color: #fff;
+           border: #FFD000;
+    }
+
+    #mainNav.is-open {
+        transform: translateX(0);
+    }
+
+    #mainNav ul{
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+        
+    }
+
+    #mainNav{
+  background: linear-gradient(180deg,#111 0%,#1a1a1a 100%);
+  box-shadow: -4px 0 20px rgba(0,0,0,.45);
+  border-left: 1px solid #222;      /* define el borde interno */
+}
+
+/* Paddings generosos para que los dedos no fallen */
+#mainNav ul{ padding: 2rem 1.5rem; }
+
+/* Enlaces apilados, full-width y agradables al tacto */
+#mainNav a{
+  display:block;
+  font-family: 'Inter',sans-serif;  /* tipografía limpia */
+  font-size:1.1rem;
+  font-weight:500;
+  color:#e0e0e0;
+  text-decoration:none;
+  letter-spacing:.4px;
+  padding:.75rem 1rem;
+  border-radius:.4rem;
+  transition: background .25s ease,color .25s ease;
+}
+
+/* Hover / focus: contraste amarillo tech */
+#mainNav a:hover,
+#mainNav a:focus-visible{
+  background:#FFD000;
+  color:#000;
+}
+
+/* Click rápido - pequeños feedback táctil */
+#mainNav a:active{
+  transform:translateY(2px);
+}
+
+/* Botón ☰: ligero giro cuando el menú está abierto */
+#navToggle{
+  line-height:1;
+  font-size:2.2rem;
+  padding:.25rem .5rem;
+  transition:transform .3s ease;
+}
+#navToggle[aria-expanded="true"]{
+  transform:rotate(90deg);
+}
+
+/* Evita que algo asome fuera del viewport */
+body{ overflow-x:hidden; }
+
+}
+
+
+#navToggle {
+    color: white; /* Para que sea visible contra el fondo negro */
+    z-index: 1000; /* Asegurar que esté por encima */
+}
+
+
