@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   gap: 2%;
@@ -39,6 +45,13 @@ footer {
   display: flex;
   gap: 2%;
   flex-wrap: wrap;
+  width: 100%;
+  height: 800px;
+  margin-top: 4rem;
+
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+background: linear-gradient(to bottom, rgba(13,17,23,0.9), rgba(255,255,255,0.15));
+
 }
 
 .box:nth-child(1),
@@ -46,13 +59,12 @@ footer {
 .box:nth-child(3),
 .box:nth-child(4),
 .box:nth-child(5),
-.box:nth-child(6),
-.box:nth-child(7),
-.box:nth-child(8),
-.box:nth-child(9) {
-  width: 32%;
-  height: 32%;
+.box:nth-child(6) {
+  width: 30%;
+  height: 33.6%;
+  gap: 2rem;
 }
+
 @media (min-width:768px){
 #mainNav a{
   position:relative;
@@ -335,65 +347,107 @@ nav {
     }
 
     #mainNav{
-  background: linear-gradient(180deg,#111 0%,#1a1a1a 100%);
-  box-shadow: -4px 0 20px rgba(0,0,0,.45);
-  border-left: 1px solid #222;      /* define el borde interno */
-
-}
+        background: linear-gradient(180deg,#111 0%,#1a1a1a 100%);
+        box-shadow: -4px 0 20px rgba(0,0,0,.45);
+        border-left: 1px solid #222;      /* define el borde interno */
+    }
 
 /* Paddings generosos para que los dedos no fallen */
-#mainNav ul{ padding: 2rem 1.5rem; }
+      #mainNav ul{ padding: 2rem 1.5rem; }
 
-/* Enlaces apilados, full-width y agradables al tacto */
-#mainNav a{
-  display:block;
-  font-family: 'Inter',sans-serif;  /* tipografía limpia */
-  font-size:1.1rem;
-  font-weight:500;
-  color:#e0e0e0;
-  text-decoration:none;
-  letter-spacing:.4px;
-  padding:.75rem 1rem;
-  border-radius:.4rem;
-  transition: background .25s ease,color .25s ease;
+      /* Enlaces apilados, full-width y agradables al tacto */
+      #mainNav a{
+        display:block;
+        font-family: 'Inter',sans-serif;  /* tipografía limpia */
+        font-size:1.1rem;
+        font-weight:500;
+        color:#e0e0e0;
+        text-decoration:none;
+        letter-spacing:.4px;
+        padding:.75rem 1rem;
+        border-radius:.4rem;
+        transition: background .25s ease,color .25s ease;
+      }
+
+      /* Hover / focus: contraste amarillo tech */
+      #mainNav a:hover,
+      #mainNav a:focus-visible{
+        background:#FFD000;
+        color:#000;
+      }
+
+      /* Click rápido - pequeños feedback táctil */
+      #mainNav a:active{
+        transform:translateY(2px);
+      }
+
+      /* Botón ☰: ligero giro cuando el menú está abierto */
+      #navToggle{
+        line-height:1;
+        font-size:2.2rem;
+        padding:.25rem .5rem;
+        transition:transform .3s ease;
+      }
+      #navToggle[aria-expanded="true"]{
+        transform:rotate(90deg);
+      }
+
+      /* Evita que algo asome fuera del viewport */
+      body{ overflow-x:hidden; }
+
+
+        .logo              { order: 1; }   /* izquierda */
+        .socialMediaIcons  { order: 2; }   /* centro (flex:1) */
+        #navToggle         { order: 3; }   /* derecha */
+
+
+      .repWeb {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+        padding: 1rem; /* O un valor fluido */
+        box-sizing: border-box;
+          overflow-x: hidden;
+
+      }
+
+      .repWeb .box {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: auto;
+        width:100% !important;
+      }
+      
+      .box{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-radius: 0.75rem;
+      }
+
+      .box:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease;
+      }
+
+
+      .boxwebsite {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
+      .boxwebsite img {
+        max-width: 100%;
+        height: 100%;
+        display:block;
+      }
 }
-
-/* Hover / focus: contraste amarillo tech */
-#mainNav a:hover,
-#mainNav a:focus-visible{
-  background:#FFD000;
-  color:#000;
-}
-
-/* Click rápido - pequeños feedback táctil */
-#mainNav a:active{
-  transform:translateY(2px);
-}
-
-/* Botón ☰: ligero giro cuando el menú está abierto */
-#navToggle{
-  line-height:1;
-  font-size:2.2rem;
-  padding:.25rem .5rem;
-  transition:transform .3s ease;
-}
-#navToggle[aria-expanded="true"]{
-  transform:rotate(90deg);
-}
-
-/* Evita que algo asome fuera del viewport */
-body{ overflow-x:hidden; }
-
-
-  .logo              { order: 1; }   /* izquierda */
-  .socialMediaIcons  { order: 2; }   /* centro (flex:1) */
-  #navToggle         { order: 3; }   /* derecha */
-
-
-  
-
-}
-
 
 #navToggle {
     color: white; /* Para que sea visible contra el fondo negro */
@@ -402,3 +456,49 @@ body{ overflow-x:hidden; }
 
 body.menu-open{ overflow:hidden; }
 
+.boxwebsite {
+  width: 100%;
+  height: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0.75rem;
+}
+
+.boxwebsite img{
+  width: 100%;
+  height: auto;
+
+}
+
+.hidden {
+  opacity: 0; /* Totalmente invisible */
+  transform: translateY(40px); /* Lo empuja 40px hacia abajo */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+  /* Hace que el cambio a visible sea suave y fluido */
+}
+
+.show {
+  opacity: 1; /* Lo hace visible */
+  transform: translateY(0); /* Lo regresa a su posición original */
+}
+
+.box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 0.75rem;   }
+
+.box:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+
+
+.secTitleWork {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
